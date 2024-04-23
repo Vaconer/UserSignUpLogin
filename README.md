@@ -37,4 +37,4 @@ A Aplicação de Login e Cadastro de Usuários é uma plataforma simples e funci
 
 Se você tiver alguma dúvida ou sugestão para melhorar este projeto, não hesite em entrar em contato!
 
-Email: suporte@mangatecnologia.com.br
+Email: gabrielmartinssousa@gmail.com
