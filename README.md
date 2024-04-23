@@ -30,8 +30,23 @@ A Aplicação de Login e Cadastro de Usuários é uma plataforma simples e funci
    ```
 
 2. Abra o projeto no Visual Studio 2015.
-3. Configure o banco de dados SQL Server 2019 conforme necessário.
-4. Execute a aplicação a partir do Visual Studio.
+3. Configure o banco de dados SQL Server 2019 conforme necessário:
+
+   ```bash
+      CREATE DATABASE DBuserSignupLogin
+   GO
+   USE DBuserSignupLogin
+   GO
+   
+   CREATE TABLE TBLUserInfo
+   (
+   	IDUs	INT IDENTITY PRIMARY KEY,
+   	UsernameUS VARCHAR (20),
+   	PassWordUs VARCHAR (255)
+   )
+   ```
+
+5. Execute a aplicação a partir do Visual Studio.
 
 ## Contato
 
