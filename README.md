@@ -33,7 +33,7 @@ A Aplicação de Login e Cadastro de Usuários é uma plataforma simples e funci
 3. Configure o banco de dados SQL Server 2019 conforme necessário:
 
    ```bash
-      CREATE DATABASE DBuserSignupLogin
+   CREATE DATABASE DBuserSignupLogin
    GO
    USE DBuserSignupLogin
    GO
