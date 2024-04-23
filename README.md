@@ -52,4 +52,5 @@ A Aplicação de Login e Cadastro de Usuários é uma plataforma simples e funci
 
 Se você tiver alguma dúvida ou sugestão para melhorar este projeto, não hesite em entrar em contato!
 
-Email: gabrielmartinssousa@gmail.com
+- Email: gabrielmartinssousa@gmail.com
+- LinkedIn: [Meu LinkedIn](https://www.linkedin.com/in/gabriel-martins-3b76b122a/)
