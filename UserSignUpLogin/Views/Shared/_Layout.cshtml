@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Meu Aplicativo ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        .nav-right-item {
+            font-size: 17.8px; 
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="@Url.Action("Index", "Home")">Manga Tecnologia</a>
+            <div class="navbar-collapse collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <!-- Adicionando ml-auto para alinhar à direita -->
+                    @if (Session["UsernameSS"] != null && !ViewContext.RouteData.Values["action"].ToString().Equals("ResetPassword", StringComparison.OrdinalIgnoreCase))
+                    {
+                        <li class="nav-item nav-right-item">
+                            <p class="nav-link text-white">Olá @Session["UsernameSS"]</p>
+                        </li>
+                        <li class="nav-item nav-right-item">
+                            @Html.ActionLink("Logout", "Logout", "Home", new { area = "" }, new { @class = "nav-link" })
+                        </li>
+                    }
+                    else if (ViewContext.RouteData.Values["action"].ToString() == "Index")
+                    {
+                        <li class="nav-item nav-right-item">
+                            @Html.ActionLink("Login", "Login", "Home", new { area = "" }, new { @class = "nav-link" })
+                        </li>
+                        <li class="nav-item nav-right-item">
+                            @Html.ActionLink("Signup", "Signup", "Home", new { area = "" }, new { @class = "nav-link" })
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

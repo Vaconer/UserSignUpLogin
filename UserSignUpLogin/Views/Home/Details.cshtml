@@ -1,0 +1,40 @@
+﻿@model UserSignUpLogin.Models.TBLUserInfo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDUs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDUs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UsernameUS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsernameUS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PassWordUs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PassWordUs)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

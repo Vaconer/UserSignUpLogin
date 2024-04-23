@@ -1,0 +1,138 @@
+﻿@model UserSignUpLogin.Models.TBLUserInfo
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Index</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style>
+        .container {
+            max-width: 800px;
+        }
+
+        .card {
+            border: none;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        .list-group-item {
+            border: none;
+            padding: 0.75rem 1.25rem;
+        }
+
+        .btn-primary {
+            background-color: #FFA500;
+            border-color: #FFA500;
+        }
+
+            .btn-primary:hover {
+                background-color: #FF8C00;
+                border-color: #FF8C00;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 animate__animated animate__fadeInLeft">
+                <h2 class="mb-4">Bem-vindo à Manga Tecnologia</h2>
+                <div class="card mb-4">
+                    <div class="card-body">
+                        @if (Model != null)
+                        {
+                            <h5 class="card-title">Informações do Usuário</h5>
+                            <ul class="list-group">
+                                <li class="list-group-item"><strong>ID:</strong> @Model.IDUs</li>
+                                <li class="list-group-item"><strong>Usuário:</strong> @Model.UsernameUS</li>
+                                <li class="list-group-item"><strong>Senha:</strong> @Model.PassWordUs</li>
+                            </ul>
+                            <a href="@Url.Action("Edit", new { id = Model.IDUs })" class="btn btn-primary mt-3">Editar Senha</a>
+                        }
+                        else
+                        {
+                            <p class="text-center">Nenhum usuário encontrado.</p>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 animate__animated animate__fadeInRight">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Distribuição de Habilidades</h5>
+                        <canvas id="userSkillChart" style="height: 300px;"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Função para gerar valores aleatórios exclusivos para cada usuário
+        function generateRandomValues() {
+            var skills = ['HTML', 'CSS', 'JavaScript', 'Python', 'Ruby', 'PHP', 'Java', 'C#', 'SQL'];
+            var values = [];
+            while (skills.length) {
+                var index = Math.floor(Math.random() * skills.length);
+                values.push(Math.floor(Math.random() * 100) + 1);
+                skills.splice(index, 1);
+            }
+            return values;
+        }
+
+        var ctx = document.getElementById('userSkillChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['HTML', 'CSS', 'JavaScript', 'Python', 'Ruby', 'PHP', 'Java', 'C#', 'SQL'],
+                datasets: [{
+                    label: 'Distribuição de Habilidades',
+                    data: generateRandomValues(),
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.7)',
+                        'rgba(54, 162, 235, 0.7)',
+                        'rgba(255, 206, 86, 0.7)',
+                        'rgba(75, 192, 192, 0.7)',
+                        'rgba(153, 102, 255, 0.7)',
+                        'rgba(255, 159, 64, 0.7)',
+                        'rgba(255, 0, 0, 0.7)',
+                        'rgba(0, 255, 0, 0.7)',
+                        'rgba(0, 0, 255, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(255, 0, 0, 1)',
+                        'rgba(0, 255, 0, 1)',
+                        'rgba(0, 0, 255, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
